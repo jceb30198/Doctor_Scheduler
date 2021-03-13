@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const logger = require("morgan");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./client/routes/apiRoutes");
+const routes = require("./client/routes");
 
 // Defining the middleware
 app.use(express.urlencoded({ extended: true }))
@@ -24,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/doctorscheduler
   }
 );
 
-app.use("/api", apiRoutes)
+app.use(routes);
 
 // Send every request to the React app
 // Define any API routes before this runs
