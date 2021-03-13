@@ -28,6 +28,7 @@ const doctorSchema = new Schema({
                 required: true
             }
         }]
+    // create unique id
     }]
 });
 
