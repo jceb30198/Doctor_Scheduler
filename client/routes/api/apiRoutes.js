@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const db = require("../../models");
 
-router.get()
+router.use("/appointments",);
+router.use("/createApp",);
+router.use("/login",);
 
 module.exports = router;
