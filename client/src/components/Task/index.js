@@ -4,7 +4,9 @@ import { Button, Grid, Paper, List, ListItem, ListItemText, ListSubheader } from
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: "#8A8D8F"
+        backgroundColor: "#8A8D8F",
+        alignContent: "center",
+        marginTop: 10
     }
 })
 
@@ -12,20 +14,12 @@ function Task() {
     const classes = useStyles();
 
     return (
-        <div>
-
-            <Grid container direction="row" >
-                <List className={classes.root}>
-                    <ListItem>
-                        <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
-                        <Button variant="contained">+</Button>
-                    </ListItem>
-                </List>
-
-            </Grid>
-            <br></br>
-
-        </div>
+        <List className={classes.root}>
+            <ListItem>
+                <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
+                <Button variant="contained">+</Button>
+            </ListItem>
+        </List>
     );
 }
 

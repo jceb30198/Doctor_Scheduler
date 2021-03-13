@@ -5,14 +5,14 @@ import { Grid, Typography, Paper } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        textAlign: "center",
-        margin: 10
+        margin: 10,
+        alignItems: "center"
     },
     card: {
+        padding: 10,
         background: "#009CA6",
         borderColor: "#8A8D8F",
         borderStyle: "solid",
-        //borderWidth: "30%",
         color: "#27251F"
     },
     header: {
@@ -30,7 +30,7 @@ function DoctorCard(props) {
     return(
         
         
-        <Grid container xs={6} sm={4}>
+        <Grid container xs={6} sm={4} className={classes.root}>
             <Paper className={classes.card}>
                 <Grid container direction="row">
                     <Grid item xs={12} className={classes.header}>
