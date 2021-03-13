@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import ScheduleCard from "./components/ScheduleCard";
+import DoctorCard from "./components/DoctorCard";
+import Task from "./components/Task";
 
 class App extends Component {
   render() {
     return (
-      <ScheduleCard></ScheduleCard>
+      <DoctorCard>
+      </DoctorCard>
     );
   }
 }
