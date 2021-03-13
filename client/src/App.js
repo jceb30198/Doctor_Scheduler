@@ -1,19 +1,25 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Container, Paper, Typography } from "@material-ui/core";
+import DoctorCard from "./components/DoctorCard";
 
 class App extends Component {
   render() {
+    const styles = {
+      header: {
+        textAlign: "center",
+        color: "#27251F",
+        backgroundColor: "#FA4616"
+      }
+    }
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      
+      <Container>
+        <Paper style={styles.header}>
+          <Typography variant="h1">Doctor Scheduler</Typography>
+        </Paper>
+        <DoctorCard>
+        </DoctorCard>
+      </Container>
     );
   }
 }
