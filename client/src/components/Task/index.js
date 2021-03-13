@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Grid, Paper, List, ListItem, ListItemText, ListSubheader } from "@material-ui/core";
+import { Button, List, ListItem, ListItemText, ListSubheader } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
@@ -17,6 +17,7 @@ function Task() {
         <List className={classes.root}>
             <ListItem>
                 <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
+                <ListSubheader>ID:3</ListSubheader>
                 <Button variant="contained">+</Button>
             </ListItem>
         </List>
