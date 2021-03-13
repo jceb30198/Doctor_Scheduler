@@ -1,13 +1,25 @@
 import React, { Component } from "react";
-import "./App.css";
+import { Container, Paper, Typography } from "@material-ui/core";
 import DoctorCard from "./components/DoctorCard";
-import Task from "./components/Task";
 
 class App extends Component {
   render() {
+    const styles = {
+      header: {
+        textAlign: "center",
+        color: "#27251F",
+        backgroundColor: "#FA4616"
+      }
+    }
     return (
-      <DoctorCard>
-      </DoctorCard>
+      
+      <Container>
+        <Paper style={styles.header}>
+          <Typography variant="h1">Doctor Scheduler</Typography>
+        </Paper>
+        <DoctorCard>
+        </DoctorCard>
+      </Container>
     );
   }
 }

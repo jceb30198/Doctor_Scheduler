@@ -2,7 +2,10 @@ import React from "react";
 import Task from "../Task"
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+
+// Miami Marlins OG Color Scheme for colors!
 const useStyles = makeStyles({
     root: {
         margin: 10,
@@ -10,7 +13,7 @@ const useStyles = makeStyles({
     },
     card: {
         padding: 10,
-        background: "#009CA6",
+        backgroundColor: "#009CA6",
         borderColor: "#8A8D8F",
         borderStyle: "solid",
         color: "#27251F"
@@ -38,10 +41,15 @@ function DoctorCard(props) {
                         </Typography>
                     </Grid>
                 </Grid>
+                    
                 <Grid container direction="column">
+                        
                     <Task></Task>
+                            
                     <Task></Task>
+                            
                     <Task></Task>
+                        
                 </Grid>
             </Paper>
         </Grid>
