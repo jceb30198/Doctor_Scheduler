@@ -1,16 +1,31 @@
 import React from "react";
-import { Button, Grid, Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button, Grid, Paper, List, ListItem, ListItemText, ListSubheader } from "@material-ui/core";
+
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: "#8A8D8F"
+    }
+})
 
 function Task() {
-    return(
-        <Grid container direction="row">
-            <Grid item xs={12}>
-                <Paper item xs={12} elevation={2}>Date Placeholder
-                    <Button variant="contained">+</Button>
-                </Paper>
-            </Grid>
-        </Grid>
+    const classes = useStyles();
 
+    return (
+        <div>
+
+            <Grid container direction="row" >
+                <List className={classes.root}>
+                    <ListItem>
+                        <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
+                        <Button variant="contained">+</Button>
+                    </ListItem>
+                </List>
+
+            </Grid>
+            <br></br>
+
+        </div>
     );
 }
 
