@@ -1,5 +1,4 @@
 import React from "react";
-import DoctorCard from "../components/DoctorCard";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Paper, Typography } from "@material-ui/core";
 
@@ -17,11 +16,9 @@ const useStyles = makeStyles({
 function Schedule() {
     const classes = useStyles();
     return (
-
         <Container>
             <Paper className={classes.header}>
                 <Typography variant="h1">Doctor Scheduler</Typography>
-                <Button variant="contained">Schedule</Button>
             </Paper>
         </Container>
     )
