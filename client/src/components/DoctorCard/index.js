@@ -13,13 +13,13 @@ const useStyles = makeStyles({
     },
     card: {
         padding: 10,
-        backgroundColor: "#009CA6",
-        borderColor: "#8A8D8F",
+        backgroundColor: "#8A8D8F",
+        borderColor: "#FA4616",
         borderStyle: "solid",
         color: "#27251F"
     },
     header: {
-        borderColor: "#009CA6",
+        borderColor: "#8A8D8F",
         borderBottomColor: "#FA4616",
         textAlign: "center",
         borderStyle: "solid",

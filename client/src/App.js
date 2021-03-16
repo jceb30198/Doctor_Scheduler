@@ -8,7 +8,9 @@ class App extends Component {
       header: {
         textAlign: "center",
         color: "#27251F",
-        backgroundColor: "#FA4616"
+        backgroundColor: "#8A8D8F",
+        borderColor: "#FA4616",
+        borderStyle: "solid"
       }
     }
     return (
