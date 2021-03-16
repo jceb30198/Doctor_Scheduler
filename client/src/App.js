@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container, Paper, Typography } from "@material-ui/core";
+import { Button, Container, Paper, Typography } from "@material-ui/core";
 import DoctorCard from "./components/DoctorCard";
 
 class App extends Component {
@@ -9,7 +9,10 @@ class App extends Component {
       header: {
         textAlign: "center",
         color: "#27251F",
-        backgroundColor: "#FA4616"
+        backgroundColor: "#8A8D8F",
+        borderColor: "#FA4616",
+        borderStyle: "solid",
+        padding: "5px"
       }
     }
     return (
@@ -17,6 +20,7 @@ class App extends Component {
       <Container>
         <Paper style={styles.header}>
           <Typography variant="h1">Doctor Scheduler</Typography>
+          <Button variant="contained">Schedule</Button>
         </Paper>
         <DoctorCard>
         </DoctorCard>
