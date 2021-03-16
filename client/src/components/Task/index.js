@@ -18,7 +18,7 @@ function Task() {
             <ListItem>
                 <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
                 <ListSubheader>ID:3</ListSubheader>
-                <Button variant="contained">+</Button>
+                <Button variant="contained">X</Button>
             </ListItem>
         </List>
     );
