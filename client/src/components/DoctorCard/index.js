@@ -8,7 +8,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // Miami Marlins OG Color Scheme for colors!
 const useStyles = makeStyles({
     root: {
-        margin: 10,
+        marginTop: "10px",
         alignItems: "center"
     },
     card: {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DoctorCard from "../components/DoctorCard";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Container, Paper, Typography } from "@material-ui/core";
+import { Button, Container, Paper, Typography, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
     header: {
@@ -26,8 +26,9 @@ function Appointment() {
                     <Button variant="contained">Schedule</Button>
                 </Link>
             </Paper>
-            <DoctorCard>
-            </DoctorCard>
+            <Grid container direction="row">
+            <DoctorCard/>
+            </Grid>
         </Container>
     )
 }
