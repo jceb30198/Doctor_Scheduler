@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import DoctorCard from "../components/DoctorCard";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Paper, Typography } from "@material-ui/core";
@@ -21,7 +22,9 @@ function Appointment() {
         <Container>
             <Paper className={classes.header}>
                 <Typography variant="h1">Doctor Scheduler</Typography>
-                <Button variant="contained">Schedule</Button>
+                <Link to={"/schedule"}>
+                    <Button variant="contained">Schedule</Button>
+                </Link>
             </Paper>
             <DoctorCard>
             </DoctorCard>
