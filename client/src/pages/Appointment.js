@@ -7,7 +7,6 @@ import { Button, Container, Paper, Typography, Grid } from "@material-ui/core";
 const useStyles = makeStyles({
     header: {
         textAlign: "center",
-        color: "#27251F",
         backgroundColor: "#8A8D8F",
         borderColor: "#FA4616",
         borderStyle: "solid",

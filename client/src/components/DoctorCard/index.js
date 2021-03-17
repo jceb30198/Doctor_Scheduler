@@ -15,8 +15,7 @@ const useStyles = makeStyles({
         padding: 10,
         backgroundColor: "#8A8D8F",
         borderColor: "#FA4616",
-        borderStyle: "solid",
-        color: "#27251F"
+        borderStyle: "solid"
     },
     header: {
         borderColor: "#8A8D8F",
