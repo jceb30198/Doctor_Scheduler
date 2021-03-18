@@ -8,15 +8,14 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // Miami Marlins OG Color Scheme for colors!
 const useStyles = makeStyles({
     root: {
-        margin: 10,
+        marginTop: "10px",
         alignItems: "center"
     },
     card: {
         padding: 10,
         backgroundColor: "#8A8D8F",
         borderColor: "#FA4616",
-        borderStyle: "solid",
-        color: "#27251F"
+        borderStyle: "solid"
     },
     header: {
         borderColor: "#8A8D8F",
@@ -29,6 +28,9 @@ const useStyles = makeStyles({
 
 function DoctorCard(props) {
     const classes = useStyles();
+
+    const [docName, setDocName] = useState([]);
+    const [name, setName] = useState("");
 
     return(
         
