@@ -59,7 +59,7 @@ function Schedule() {
                 onChange={ handleChange }>
                 </TextField>
                 </Grid>
-                <Link>
+                 <Link /*to={"/"}*/>
                     <Button variant="contained" onClick={ handleClick }>Add Appointment</Button>
                 </Link>
             </Paper>
