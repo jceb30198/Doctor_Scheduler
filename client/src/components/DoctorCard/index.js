@@ -42,15 +42,35 @@ function DoctorCard(props) {
                     </Grid>
                 </Grid>
                     
-                <Grid container direction="column">
-                        
-                    <Task></Task>
-                            
-                    <Task></Task>
-                            
-                    <Task></Task>
-                        
-                </Grid>
+                <DragDropContext>
+                    <Droppable>
+                        {(provided) => (
+                            <ul {...provided.droppableProps} ref={provided.innerRef}>    
+                                <Draggable draggableId="1" index="1">
+                                    {(provided) => (
+                                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                            <Task></Task>
+                                        </li>
+                                    )}
+                                </Draggable>
+                                <Draggable draggableId="1" index="1">
+                                    {(provided) => (
+                                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                            <Task></Task>
+                                        </li>
+                                    )}
+                                </Draggable>
+                                <Draggable draggableId="1" index="1">
+                                    {(provided) => (
+                                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                            <Task></Task>
+                                        </li>
+                                    )}
+                                </Draggable>
+                            </ul> 
+                        )}
+                    </Droppable> 
+                </DragDropContext>
             </Paper>
         </Grid>
     );
