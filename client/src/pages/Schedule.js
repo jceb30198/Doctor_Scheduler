@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Grid, Paper, Typography, TextField} from "@material-ui/core";
+import API from "../utils/API";
 
 const useStyles = makeStyles({
     header: {
@@ -29,18 +30,25 @@ function Schedule() {
     const classes = useStyles();
 
     const [docName, setDocName] = useState([]);
-    const [name, setName] = useState("");
+    const [formObject, setFormObject] = useState({});
 
-    function handleClick(event) {
-        // Printing the characters set by setDocName
-        event.preventDefault();
-        console.log(docName);
-    }
-
-    function handleChange(event) {
+    function handleInput(event) {
         // Grabbing the input characters
-        const { value } = event.target
-        setDocName(value);
+        const { name, value } = event.target
+        setFormObject({...formObject, [name]: value});
+    }
+    
+    function handleSubmit(event) {
+        
+        event.preventDefault();
+        if (formObject.docName) {
+            API.saveAppointment({
+                name: formObject.docName
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        }
+        console.log(formObject.docName);
     }
 
     return (
@@ -56,11 +64,11 @@ function Schedule() {
                 className={classes.innerForm}
                 label="Doctor Name"
                 name="docName"
-                onChange={ handleChange }>
+                onChange={ handleInput }>
                 </TextField>
                 </Grid>
                  <Link /*to={"/"}*/>
-                    <Button variant="contained" onClick={ handleClick }>Add Appointment</Button>
+                    <Button variant="contained" onClick={ handleSubmit }>Add Appointment</Button>
                 </Link>
             </Paper>
         </Container>
