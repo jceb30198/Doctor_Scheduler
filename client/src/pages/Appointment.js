@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DoctorCard from "../components/DoctorCard";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Container, Paper, Typography, Grid } from "@material-ui/core";
+import { Button, Container, Paper, Typography, Grid, List, ListItem } from "@material-ui/core";
+import API from "../utils/API";
 
 const useStyles = makeStyles({
     header: {
@@ -16,6 +17,23 @@ const useStyles = makeStyles({
 
 function Appointment() {
     const classes = useStyles();
+
+    const [doctors, setDoctors] = useState([]);
+    const [formObject, setFormObject] = useState({});
+
+    useEffect(() => {
+        loadName();
+    }, [])
+
+    function loadName() {
+        API.getAppointments()
+        .then((res) => {
+            setDoctors(res.data);
+        })
+        .catch(err => console.log(err));
+    }
+
+    console.log(doctors.length);
     return (
 
         <Container>
@@ -26,7 +44,12 @@ function Appointment() {
                 </Link>
             </Paper>
             <Grid container direction="row">
-            <DoctorCard/>
+                {doctors.map(doctor => {
+                    console.log(doctor);
+                    return (
+                        <DoctorCard key={doctor._id} />
+                    )
+                })}
             </Grid>
         </Container>
     )

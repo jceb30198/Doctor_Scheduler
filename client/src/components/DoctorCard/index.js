@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Task from "../Task"
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import API from "../../utils/API";
 
 
 // Miami Marlins OG Color Scheme for colors!
@@ -31,12 +32,11 @@ function DoctorCard(props) {
 
     return(
         
-        
         <Grid container xs={6} sm={4} className={classes.root}>
             <Paper className={classes.card}>
                 <Grid container direction="row">
                     <Grid item xs={12} className={classes.header}>
-                        <Typography variant="h4">Dr. Steve Austin
+                        <Typography variant="h4">{}
                         </Typography>
                     </Grid>
                 </Grid>

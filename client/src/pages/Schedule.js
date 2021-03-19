@@ -42,7 +42,7 @@ function Schedule() {
         event.preventDefault();
 
         console.log(formObject);
-        if (formObject.docName) {
+        if (formObject.docName && formObject.end) {
             API.saveAppointment({
                 name: formObject.docName,
                 task: [{
