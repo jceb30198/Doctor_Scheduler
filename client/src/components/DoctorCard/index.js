@@ -29,9 +29,6 @@ const useStyles = makeStyles({
 function DoctorCard(props) {
     const classes = useStyles();
 
-    const [docName, setDocName] = useState([]);
-    const [name, setName] = useState("");
-
     return(
         
         
