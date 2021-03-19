@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 function Schedule() {
     const classes = useStyles();
 
-    const [docName, setDocName] = useState([]);
+    const [docArr, setDocArr] = useState([]);
     const [formObject, setFormObject] = useState({});
 
     function handleInput(event) {
@@ -39,16 +39,16 @@ function Schedule() {
     }
     
     function handleSubmit(event) {
-        
         event.preventDefault();
+
+        console.log(formObject);
         if (formObject.docName) {
             API.saveAppointment({
                 name: formObject.docName
             })
-            .then(res => console.log(res))
+            .then(res => console.log(res.data))
             .catch(err => console.log(err));
         }
-        console.log(formObject.docName);
     }
 
     return (

@@ -5,3 +5,5 @@ const apptController = require("../../controllers/ApptCard");
 router.route("/")
     .get(apptController.findAll)
     .post(apptController.create);
+
+module.exports = router;
