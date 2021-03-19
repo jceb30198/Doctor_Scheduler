@@ -29,6 +29,7 @@ const useStyles = makeStyles({
 
 function DoctorCard(props) {
     const classes = useStyles();
+    const doctor = props.doctor;
 
     return(
         
@@ -36,20 +37,16 @@ function DoctorCard(props) {
             <Paper className={classes.card}>
                 <Grid container direction="row">
                     <Grid item xs={12} className={classes.header}>
-                        <Typography variant="h4">{}
+                        <Typography variant="h4">{doctor.name}
                         </Typography>
                     </Grid>
                 </Grid>
                     
-                <Grid container direction="column">
-                        
-                    <Task></Task>
-                            
-                    <Task></Task>
-                            
-                    <Task></Task>
-                        
-                </Grid>
+                {doctor.task.map(task => {
+                    return (
+                        <Task task={task}/>
+                    )
+                })}
             </Paper>
         </Grid>
     );

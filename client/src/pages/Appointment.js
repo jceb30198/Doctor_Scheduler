@@ -33,7 +33,7 @@ function Appointment() {
         .catch(err => console.log(err));
     }
 
-    console.log(doctors.length); // Testing length
+    // console.log(doctors.length); // Testing length
     return (
 
         <Container>
@@ -45,9 +45,9 @@ function Appointment() {
             </Paper>
             <Grid container direction="row">
                 {doctors.map(doctor => {
-                    console.log(doctor); // Testing object
+                    // console.log(doctor); // Testing object
                     return (
-                        <DoctorCard key={doctor._id} />
+                        <DoctorCard key={doctor._id} doctor={doctor} />
                     )
                 })}
             </Grid>

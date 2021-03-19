@@ -10,14 +10,15 @@ const useStyles = makeStyles({
     }
 })
 
-function Task() {
+function Task(props) {
     const classes = useStyles();
+    const appt = props.task;
 
     return (
         <List className={classes.root}>
             <ListItem>
-                <ListItemText primary="Jan 9, 2014" secondary="1 pm - 3 pm" />
-                <ListSubheader>ID:3</ListSubheader>
+                <ListItemText primary={`${appt.date.month}/${appt.date.day}/${appt.date.year}`} secondary={`${appt.time.start} pm - ${appt.time.end} pm`} />
+                <ListSubheader>ID:{appt._id}</ListSubheader>
                 <Button variant="contained">X</Button>
             </ListItem>
         </List>
