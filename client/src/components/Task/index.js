@@ -4,7 +4,7 @@ import { Button, List, ListItem, ListItemText, ListSubheader } from "@material-u
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: "#009CA6",
+        backgroundColor: "white",
         alignContent: "center",
         marginTop: 10
     }

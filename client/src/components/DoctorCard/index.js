@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     },
     card: {
         padding: 10,
-        backgroundColor: "#8A8D8F",
+        backgroundColor: "white",
         borderColor: "#FA4616",
         borderStyle: "solid",
         color: "#27251F"
@@ -29,6 +29,33 @@ const useStyles = makeStyles({
 
 function DoctorCard(props) {
     const classes = useStyles();
+    // idList = [];
+    // for(i=0; i<4; i++){
+    //     state = {dragid: "dragid"}
+    //     onDragEnd = result => {
+    //     const { destination, source, reason} = result;
+    // }
+    
+
+
+
+    // if(!destination || reason === 'CANCEL'){
+    //     return;
+    // }
+    
+    // if(destination.droppableId===source.droppableId && 
+    //     destination.index === source.index
+    // ){
+    //     return;
+    // }
+    // listindex = [0, 1, 2];
+    // function assignId(indexes){
+    // for(i=0; i<listindex.length(); i++){
+    //     idList = [];
+    //     idList.append("drag" + i);
+    //     console.log(idList[0]);
+    
+    // };
 
     return(
         
@@ -42,31 +69,41 @@ function DoctorCard(props) {
                     </Grid>
                 </Grid>
                     
-                <DragDropContext>
-                    <Droppable>
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="dropper">
                         {(provided) => (
                             <ul {...provided.droppableProps} ref={provided.innerRef}>    
-                                <Draggable draggableId="1" index="1">
+                                <Draggable draggableId="drop0" index="0">
                                     {(provided) => (
                                         <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Task></Task>
+                                            <Task                                             ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}></Task>
                                         </li>
                                     )}
                                 </Draggable>
-                                <Draggable draggableId="1" index="1">
+                                {provided.placeholder}
+                                <Draggable draggableId="drop1" index="1">
                                     {(provided) => (
                                         <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Task></Task>
+                                            <Task                                             ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}></Task>
+                                            <p>1</p>
                                         </li>
                                     )}
                                 </Draggable>
-                                <Draggable draggableId="1" index="1">
+                                {provided.placeholder}
+                                <Draggable draggableId="drop2" index="2">
                                     {(provided) => (
                                         <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Task></Task>
+                                            <Task                                             ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}></Task>
                                         </li>
                                     )}
                                 </Draggable>
+                                {provided.placeholder}
                             </ul> 
                         )}
                     </Droppable> 
