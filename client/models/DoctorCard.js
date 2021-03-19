@@ -7,7 +7,7 @@ const doctorSchema = new Schema({
         required: true
     },
     task: [{
-        date: [{
+        date: {
             month: {
                 type: Number
             },
@@ -17,8 +17,8 @@ const doctorSchema = new Schema({
             year: {
                 type: Number
             }
-        }],
-        time: [{
+        },
+        time: {
             start: {
                 type: Number,
                 required: true
@@ -27,7 +27,7 @@ const doctorSchema = new Schema({
                 type: Number,
                 required: true
             }
-        }]
+        }
     // create unique id
     }]
 });
