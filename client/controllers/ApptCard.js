@@ -25,12 +25,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {
-        db.DoctorCard.findOneAndUpdate({ _id: req.params.id },
-            { 
-                $push: {
-                    task: req.body
-                } 
-            })
+        db.DoctorCard.findOneAndUpdate({ _id: req.params.id },)
         .then((dbModel) => {
             res.json(dbModel);
         })

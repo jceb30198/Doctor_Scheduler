@@ -43,16 +43,24 @@ function Appointment() {
     const [formObject, setFormObject] = useState({});
 
     useEffect(() => {
-        loadName();
+        load();
     }, [])
 
-    function loadName() {
+    function load() {
         API.getAppointments()
         .then((res) => {
             setDoctors(res.data);
         })
         .catch(err => console.log(err));
     }
+
+    function remove(id) {
+        API.deleteAppt(id)
+        .then((res) => {
+            load()
+        })
+        .catch(err => console.log(err))
+    };
 
     // console.log(doctors.length); // Testing length
     return (
@@ -68,26 +76,26 @@ function Appointment() {
                 {doctors.map(doctor => {
                     // console.log(doctor); // Testing object
                     return (
-                        <Grid container xs={6} sm={4} className={classes.root}>
+                        <Grid container item xs={6} sm={4} className={classes.root}>
                             <Paper className={classes.card}>
                                 <Grid container direction="row">
                                     <Grid item xs={12} className={classes.header}>
                                         <Typography variant="h4">Dr. {doctor.name}
                                         </Typography>
                                     </Grid>
+                                    <List className={classes.task}>
 
                                     {doctor.task.map(task => {
-                                        console.log(task)
+                                         console.log(task); // Testing object
                                         return (
-                                            <List className={classes.task}>
                                                 <ListItem key={task._id}>
                                                     <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
                                                     <ListSubheader>ID:{task._id}</ListSubheader>
-                                                    <Button variant="contained">X</Button>
+                                                    <Button variant="contained" onClick={() => remove(task._id)}>X</Button>
                                                 </ListItem>
-                                            </List>
                                         )
                                     })}
+                                    </List>
                                 </Grid>
                             </Paper>
                         </Grid>
