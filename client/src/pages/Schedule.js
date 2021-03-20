@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Grid, Paper, Typography, TextField} from "@material-ui/core";
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import API from "../utils/API";
 
 const useStyles = makeStyles({
