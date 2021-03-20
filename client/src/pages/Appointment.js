@@ -63,6 +63,8 @@ function Appointment() {
         .catch(err => console.log(err))
     };
 
+
+
     // console.log(doctors.length); // Testing length
     return (
 
@@ -86,6 +88,7 @@ function Appointment() {
                                     </Grid>
                                     <DragDropContext>
                                         <Droppable droppableId="dropper">
+                                        {(provided) => (
                                             <List className={classes.task} {...provided.droppableProps} ref={provided.innerRef}>
 
                                             {doctor.task.map(task => {
@@ -104,6 +107,7 @@ function Appointment() {
                                             })}
                                             {provided.placeholder}
                                             </List>
+                                        )};
                                         </Droppable>
                                     </DragDropContext>
                                 </Grid>
