@@ -88,10 +88,10 @@ function Appointment() {
                                     {doctor.task.map(task => {
                                          console.log(task); // Testing object
                                         return (
-                                                <ListItem key={task._id}>
+                                                <ListItem key={doctor._id}>
                                                     <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
                                                     <ListSubheader>ID:{task._id}</ListSubheader>
-                                                    <Button variant="contained" onClick={() => remove(task._id)}>X</Button>
+                                                    <Button variant="contained" onClick={() => remove(doctor._id)}>X</Button>
                                                 </ListItem>
                                         )
                                     })}
