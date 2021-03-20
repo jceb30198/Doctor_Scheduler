@@ -42,9 +42,21 @@ function Schedule() {
         event.preventDefault();
 
         console.log(formObject);
-        if (formObject.docName) {
+        if (formObject.docName && formObject.end) {
             API.saveAppointment({
-                name: formObject.docName
+                name: formObject.docName,
+                task: [{
+                    date: {
+                        month: formObject.month,
+                        day: formObject.day,
+                        year: formObject.year
+                    },
+                    time: {
+                        start: formObject.start,
+                        end: formObject.end
+                    }
+                }]
+
             })
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
@@ -64,6 +76,36 @@ function Schedule() {
                 className={classes.innerForm}
                 label="Doctor Name"
                 name="docName"
+                onChange={ handleInput }>
+                </TextField>
+                <TextField 
+                className={classes.innerForm}
+                label="Month"
+                name="month"
+                onChange={ handleInput }>
+                </TextField>
+                <TextField 
+                className={classes.innerForm}
+                label="Day"
+                name="day"
+                onChange={ handleInput }>
+                </TextField>
+                <TextField 
+                className={classes.innerForm}
+                label="Year"
+                name="year"
+                onChange={ handleInput }>
+                </TextField>
+                <TextField 
+                className={classes.innerForm}
+                label="Start Time"
+                name="start"
+                onChange={ handleInput }>
+                </TextField>
+                <TextField 
+                className={classes.innerForm}
+                label="End Time"
+                name="end"
                 onChange={ handleInput }>
                 </TextField>
                 </Grid>
