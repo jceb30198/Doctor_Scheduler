@@ -7,15 +7,15 @@ import API from "../utils/API";
 const useStyles = makeStyles({
     header: {
         textAlign: "center",
-        backgroundColor: "#8A8D8F",
-        borderColor: "#FA4616",
+        backgroundColor: "#3aba8e",
+        borderColor: "#7eb6af",
         borderStyle: "solid",
         padding: "5px"
     },
     form: {
         textAlign: "center",
-        backgroundColor: "#8A8D8F",
-        borderColor: "#FA4616",
+        backgroundColor: "#3aba8e",
+        borderColor: "#7eb6af",
         borderStyle: "solid",
         marginTop: "10px",
         padding: "5px"
@@ -23,6 +23,12 @@ const useStyles = makeStyles({
     innerForm: {
         padding: "3px",
         margin: "3px"
+    },
+    formInput: {
+        backgroundColor: "white",
+        marginLeft: "10%",
+        marginRight: "10%",
+        marginTop: "3%"
     }
 })
 
@@ -39,7 +45,7 @@ function Schedule() {
     }
     
     function handleSubmit(event) {
-        event.preventDefault();
+        
 
         console.log(formObject);
         if (formObject.docName && formObject.end) {
@@ -64,56 +70,67 @@ function Schedule() {
     }
 
     return (
-        <Container>
-            <Paper className={classes.header}>
-                <Typography variant="h1">Doctor Scheduler</Typography>
-            </Paper>
 
-            <Paper className={classes.form}>
-                <Grid container>
+        <Grid>
 
-                <TextField 
-                className={classes.innerForm}
-                label="Doctor Name"
-                name="docName"
-                onChange={ handleInput }>
-                </TextField>
-                <TextField 
-                className={classes.innerForm}
-                label="Month"
-                name="month"
-                onChange={ handleInput }>
-                </TextField>
-                <TextField 
-                className={classes.innerForm}
-                label="Day"
-                name="day"
-                onChange={ handleInput }>
-                </TextField>
-                <TextField 
-                className={classes.innerForm}
-                label="Year"
-                name="year"
-                onChange={ handleInput }>
-                </TextField>
-                <TextField 
-                className={classes.innerForm}
-                label="Start Time"
-                name="start"
-                onChange={ handleInput }>
-                </TextField>
-                <TextField 
-                className={classes.innerForm}
-                label="End Time"
-                name="end"
-                onChange={ handleInput }>
-                </TextField>
-                </Grid>
-                 <Link /*to={"/"}*/>
-                    <Button variant="contained" onClick={ handleSubmit }>Add Appointment</Button>
-                </Link>
-            </Paper>
-        </Container>
+            <Typography variant="h1" className={classes.header}>Doctor Scheduler</Typography>
+            <Container>
+
+                <Paper className={classes.form}>
+                    <Paper className={classes.formInput} elevation={5}>
+
+                        <Grid>
+                            <TextField
+                                className={classes.innerForm}
+                                label="Doctor Name (Jane Doe)"
+                                name="docName"
+                                onChange={handleInput}>
+                            </TextField>
+                        </Grid>
+                        <Grid>
+                            <TextField
+                                className={classes.innerForm}
+                                label="Month (MM)"
+                                name="month"
+                                onChange={handleInput}>
+                            </TextField>
+                            <TextField
+                                className={classes.innerForm}
+                                label="Day (DD)"
+                                name="day"
+                                onChange={handleInput}>
+                            </TextField>
+                            <TextField
+                                className={classes.innerForm}
+                                label="Year (YYYY)"
+                                name="year"
+                                onChange={handleInput}>
+                            </TextField>
+                        </Grid>
+                        <Grid>
+                            <TextField
+                                className={classes.innerForm}
+                                label="Start Time (0000)"
+                                name="start"
+                                onChange={handleInput}>
+                            </TextField>
+                            <TextField
+                                className={classes.innerForm}
+                                label="End Time (2300)"
+                                name="end"
+                                onChange={handleInput}>
+                            </TextField>
+                        </Grid>
+                        <br/>
+                    </Paper>
+                    <br/>
+                    <Link to={"/"}>
+                        <Button variant="contained" onClick={handleSubmit}>Add Appointment</Button>
+                    </Link>
+                </Paper>
+            </Container>
+        </Grid>
+
     )
 }
 
