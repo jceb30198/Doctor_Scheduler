@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Paper, Typography, Grid, List, ListItem, ListItemText, ListSubheader } from "@material-ui/core";
-import API from "../utils/API";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const useStyles = makeStyles({
     jumbo: {
@@ -49,7 +49,7 @@ function Appointment() {
     function load() {
         API.getAppointments()
         .then((res) => {
-            setDoctors(res.data);
+             setDoctors(res.data);
         })
         .catch(err => console.log(err));
     }
@@ -64,7 +64,7 @@ function Appointment() {
 
     // console.log(doctors.length); // Testing length
     return (
-
+        
         <Container>
             <Paper className={classes.jumbo}>
                 <Typography variant="h1">Doctor Scheduler</Typography>
@@ -72,36 +72,50 @@ function Appointment() {
                     <Button variant="contained">Schedule</Button>
                 </Link>
             </Paper>
+            <DragDropContext>
+            <Droppable droppableId="dropper">
             <Grid container direction="row">
-                {doctors.map(doctor => {
-                    // console.log(doctor); // Testing object
-                    return (
-                        <Grid container item xs={6} sm={4} className={classes.root}>
-                            <Paper className={classes.card}>
-                                <Grid container direction="row">
-                                    <Grid item xs={12} className={classes.header}>
-                                        <Typography variant="h4">Dr. {doctor.name}
-                                        </Typography>
-                                    </Grid>
-                                    <List className={classes.task}>
+                {(provided) => (
+                    <ul {...provided.droppableProps} ref={provided.innerRef}>
 
-                                    {doctor.task.map(task => {
-                                         console.log(task); // Testing object
-                                        return (
-                                                <ListItem key={doctor._id}>
-                                                    <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
-                                                    <ListSubheader>ID:{task._id}</ListSubheader>
-                                                    <Button variant="contained" onClick={() => remove(doctor._id)}>X</Button>
-                                                </ListItem>
-                                        )
-                                    })}
-                                    </List>
-                                </Grid>
-                            </Paper>
-                        </Grid>
-                    )
-                })}
+                        {doctors.map(doctor => {
+                            // console.log(doctor); // Testing object
+                            return (
+                                <Draggable draggableId={doctor._id}>
+                                    {(provided) => (
+                                        <Grid container item xs={6} sm={4} className={classes.root}>
+                                            <Paper className={classes.card} {...provided.draggableProps}
+                                            {...provided.dragHandleProps}>
+                                                <Grid container direction="row">
+                                                    <Grid item xs={12} className={classes.header}>
+                                                        <Typography variant="h4">Dr. {doctor.name}
+                                                        </Typography>
+                                                    </Grid>
+                                                    <List className={classes.task}>
+
+                                                    {doctor.task.map(task => {
+                                                        console.log(task); // Testing object
+                                                        return (
+                                                                <ListItem key={doctor._id}>
+                                                                    <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
+                                                                    <ListSubheader>ID:{task._id}</ListSubheader>
+                                                                    <Button variant="contained" onClick={() => remove(doctor._id)}>X</Button>
+                                                                </ListItem>
+                                                        )
+                                                    })}
+                                                    </List>
+                                                </Grid>
+                                            </Paper>
+                                        </Grid>
+                                    )}
+                                </Draggable>
+                            )
+                        })}
+                    </ul>
+                )}
             </Grid>
+            </Droppable>
+            </DragDropContext>
         </Container>
     )
 }
