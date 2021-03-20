@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Paper, Typography, Grid, List, ListItem, ListItemText, ListSubheader } from "@material-ui/core";
 import API from "../utils/API";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const useStyles = makeStyles({
     jumbo: {
@@ -83,19 +84,28 @@ function Appointment() {
                                         <Typography variant="h4">Dr. {doctor.name}
                                         </Typography>
                                     </Grid>
-                                    <List className={classes.task}>
+                                    <DragDropContext>
+                                        <Droppable droppableId="dropper">
+                                            <List className={classes.task} {...provided.droppableProps} ref={provided.innerRef}>
 
-                                    {doctor.task.map(task => {
-                                         console.log(task); // Testing object
-                                        return (
-                                                <ListItem key={doctor._id}>
-                                                    <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
-                                                    <ListSubheader>ID:{task._id}</ListSubheader>
-                                                    <Button variant="contained" onClick={() => remove(doctor._id)}>X</Button>
-                                                </ListItem>
-                                        )
-                                    })}
-                                    </List>
+                                            {doctor.task.map(task => {
+                                                console.log(task); // Testing object
+                                                return (
+                                                    <Draggable key={id} draggableId={id} index={index}>
+                                                        {(provided) => (
+                                                            <ListItem key={doctor._id} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                                                <ListItemText primary={`${task.date.month}/${task.date.day}/${task.date.year}`} secondary={`${task.time.start} - ${task.time.end}`} />
+                                                                <ListSubheader>ID:{task._id}</ListSubheader>
+                                                                <Button variant="contained" onClick={() => remove(doctor._id)}>X</Button>
+                                                            </ListItem>
+                                                        )}
+                                                    </Draggable>                                           
+                                                );
+                                            })}
+                                            {provided.placeholder}
+                                            </List>
+                                        </Droppable>
+                                    </DragDropContext>
                                 </Grid>
                             </Paper>
                         </Grid>
